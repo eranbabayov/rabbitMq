@@ -27,6 +27,7 @@ Before running the examples, make sure you have the following:
 ### Required Libraries
 
 - **pika**: A Python RabbitMQ client to send and receive messages.
+- **pydantic**: A data validation library to ensure data integrity.
 
 To install the necessary dependencies, you can run:
 
