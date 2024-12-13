@@ -1,12 +1,6 @@
 import pika
+from pika.adapters.blocking_connection import BlockingChannel
 from pydantic import BaseModel
-
-'''
-why port 5672?
-what is heartbeat ?
-what is auto_ack?
-what is exclusive?
-'''
 
 
 class Message(BaseModel):
@@ -25,9 +19,9 @@ class Message(BaseModel):
 class MessageBroker:
     def __init__(self, sender_id):
         self.sender_id: str = sender_id
-        self.connection = self.get_connection()
-        self.in_channel = self.connection.channel()
-        self.out_channel = self.connection.channel()
+        self.connection: pika.BlockingConnection = self.get_connection()
+        self.in_channel: BlockingChannel = self.connection.channel()
+        self.out_channel: BlockingChannel = self.connection.channel()
 
     @staticmethod
     def get_connection():
