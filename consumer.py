@@ -8,5 +8,5 @@ def person1_callback_function(ch, method, properties, body):
 
 
 if __name__ == '__main__':
-    person1 = Person(person_name='eran1')
+    person1 = Person(person_name='consumer')
     person1.broker.subscribe(callback_function=person1_callback_function)
